@@ -1,0 +1,67 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="POS_System_REST_API:war exploded">
+    <output-path>$PROJECT_DIR$/target/POS_System_REST_API-1.0-SNAPSHOT</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <exploded>true</exploded>
+        <module>POS_System_REST_API</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="POS_System_REST_API" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:6.1.12" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-aop:6.1.12" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-beans:6.1.12" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-context:6.1.12" />
+          <element id="library" level="project" name="Maven: io.micrometer:micrometer-observation:1.12.9" />
+          <element id="library" level="project" name="Maven: io.micrometer:micrometer-commons:1.12.9" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-core:6.1.12" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-jcl:6.1.12" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-expression:6.1.12" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-web:6.1.12" />
+          <element id="library" level="project" name="Maven: com.mysql:mysql-connector-j:8.0.33" />
+          <element id="library" level="project" name="Maven: com.google.protobuf:protobuf-java:3.21.9" />
+          <element id="library" level="project" name="Maven: org.springframework.data:spring-data-jpa:3.3.3" />
+          <element id="library" level="project" name="Maven: org.springframework.data:spring-data-commons:3.3.3" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-orm:6.1.12" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:6.1.12" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-tx:6.1.12" />
+          <element id="library" level="project" name="Maven: org.antlr:antlr4-runtime:4.13.0" />
+          <element id="library" level="project" name="Maven: jakarta.annotation:jakarta.annotation-api:2.0.0" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:2.0.2" />
+          <element id="library" level="project" name="Maven: org.hibernate.orm:hibernate-core:6.6.0.Final" />
+          <element id="library" level="project" name="Maven: jakarta.persistence:jakarta.persistence-api:3.1.0" />
+          <element id="library" level="project" name="Maven: jakarta.transaction:jakarta.transaction-api:2.0.1" />
+          <element id="library" level="project" name="Maven: org.jboss.logging:jboss-logging:3.5.0.Final" />
+          <element id="library" level="project" name="Maven: org.hibernate.common:hibernate-commons-annotations:7.0.1.Final" />
+          <element id="library" level="project" name="Maven: io.smallrye:jandex:3.2.0" />
+          <element id="library" level="project" name="Maven: com.fasterxml:classmate:1.5.1" />
+          <element id="library" level="project" name="Maven: net.bytebuddy:byte-buddy:1.14.18" />
+          <element id="library" level="project" name="Maven: jakarta.xml.bind:jakarta.xml.bind-api:4.0.0" />
+          <element id="library" level="project" name="Maven: jakarta.activation:jakarta.activation-api:2.1.0" />
+          <element id="library" level="project" name="Maven: org.glassfish.jaxb:jaxb-runtime:4.0.2" />
+          <element id="library" level="project" name="Maven: org.glassfish.jaxb:jaxb-core:4.0.2" />
+          <element id="library" level="project" name="Maven: org.eclipse.angus:angus-activation:2.0.0" />
+          <element id="library" level="project" name="Maven: org.glassfish.jaxb:txw2:4.0.2" />
+          <element id="library" level="project" name="Maven: com.sun.istack:istack-commons-runtime:4.1.1" />
+          <element id="library" level="project" name="Maven: jakarta.inject:jakarta.inject-api:2.0.1" />
+          <element id="library" level="project" name="Maven: org.modelmapper.extensions:modelmapper-spring:3.2.1" />
+          <element id="library" level="project" name="Maven: org.modelmapper:modelmapper:3.2.1" />
+          <element id="library" level="project" name="Maven: org.projectlombok:lombok:1.18.34" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.17.2" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.17.2" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.17.2" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/target/POS_System_REST_API-1.0-SNAPSHOT/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="POS_System_REST_API/web/Web" />
+    </root>
+  </artifact>
+</component>
