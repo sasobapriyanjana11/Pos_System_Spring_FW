@@ -23,7 +23,7 @@ public class CustomerEntity implements SuperEntity {
     private String name;
 
     private String address;
-    private Double salary;
+    private double salary;
 
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<OrderEntity> orders;
