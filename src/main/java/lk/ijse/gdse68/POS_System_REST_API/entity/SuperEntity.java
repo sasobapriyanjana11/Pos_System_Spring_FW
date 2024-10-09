@@ -1,5 +1,7 @@
 package lk.ijse.gdse68.POS_System_REST_API.entity;
 
-public interface SuperEntity {
+import java.io.Serializable;
+
+public interface SuperEntity extends Serializable {
 
 }
