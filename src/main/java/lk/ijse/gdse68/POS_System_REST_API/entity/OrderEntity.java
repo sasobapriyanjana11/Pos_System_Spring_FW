@@ -17,7 +17,7 @@ import java.util.List;
 @Entity
 public class OrderEntity implements SuperEntity {
     @Id
-    @Pattern(regexp = "O\\d{3}", message = "Order ID must follow the pattern OXXX (e.g., O001)")
+    @Pattern(regexp = "O\\d{3,}", message = "Order ID must follow the pattern OXXX (e.g., O001)")
     private String orderId;
     private LocalDate orderDate;
 

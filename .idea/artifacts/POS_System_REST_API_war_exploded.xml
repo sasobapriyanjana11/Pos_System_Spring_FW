@@ -61,6 +61,7 @@
           <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.32" />
           <element id="library" level="project" name="Maven: ch.qos.logback:logback-classic:1.2.6" />
           <element id="library" level="project" name="Maven: ch.qos.logback:logback-core:1.2.6" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.13.3" />
         </element>
       </element>
       <element id="directory" name="META-INF">
