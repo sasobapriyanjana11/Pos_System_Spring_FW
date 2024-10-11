@@ -16,7 +16,7 @@ import java.util.List;
 @Entity
 public class OrderDetailsEntity implements SuperEntity {
     @Id
-    @Pattern(regexp = "OD\\d{3}", message = "Order Detail ID must follow the pattern ODXXX (e.g., OD001)")
+    @Pattern(regexp = "OD\\d{3,}", message = "Order Detail ID must follow the pattern ODXXX (e.g., OD001)")
     private String od_id;
 
     @ManyToOne
@@ -29,6 +29,8 @@ public class OrderDetailsEntity implements SuperEntity {
 
     private BigDecimal unitPrice;
     private int qty;
+
+
 }
 
 
