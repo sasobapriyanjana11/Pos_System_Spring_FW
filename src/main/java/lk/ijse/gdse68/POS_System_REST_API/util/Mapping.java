@@ -2,8 +2,12 @@ package lk.ijse.gdse68.POS_System_REST_API.util;
 
 import lk.ijse.gdse68.POS_System_REST_API.dto.impl.CustomerDTO;
 import lk.ijse.gdse68.POS_System_REST_API.dto.impl.ItemDTO;
+import lk.ijse.gdse68.POS_System_REST_API.dto.impl.OrderDTO;
+import lk.ijse.gdse68.POS_System_REST_API.dto.impl.OrderDetailDTO;
 import lk.ijse.gdse68.POS_System_REST_API.entity.CustomerEntity;
 import lk.ijse.gdse68.POS_System_REST_API.entity.ItemEntity;
+import lk.ijse.gdse68.POS_System_REST_API.entity.OrderDetailsEntity;
+import lk.ijse.gdse68.POS_System_REST_API.entity.OrderEntity;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +42,26 @@ public class Mapping {
 
     public List<ItemDTO> convertItemEntityListToItemDTOList(List<ItemEntity> itemEntityList) {
         return modelMapper.map(itemEntityList, new TypeToken<List<ItemDTO>>() {}.getType());
+    }
+
+    public OrderDTO convertOrderEntityToOrderDTO(OrderEntity orderEntity) {
+        return modelMapper.map(orderEntity, OrderDTO.class);
+    }
+
+    public OrderEntity convertOrderDTOToOrderEntity(OrderDTO orderDTO) {
+        return modelMapper.map(orderDTO, OrderEntity.class);
+    }
+
+    public OrderDetailDTO convertOrderDetailsEntityToOrderDetailsDTO(OrderDetailsEntity orderDetailsEntity) {
+        return modelMapper.map(orderDetailsEntity, OrderDetailDTO.class);
+    }
+
+    public OrderDetailsEntity convertOrderDetailsDTOToOrderDetailsEntity(OrderDetailDTO orderDetailsDTO) {
+        return modelMapper.map(orderDetailsDTO, OrderDetailsEntity.class);
+    }
+
+    public List<OrderDetailDTO> convertOrderDetailEntityListToOrderDetailDTOList(List<OrderDetailsEntity> orderDetailsEntityList) {
+        return modelMapper.map(orderDetailsEntityList, new TypeToken<List<OrderDetailDTO>>() {}.getType());
     }
 
 }
