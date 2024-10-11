@@ -41,7 +41,7 @@ public class CustomerServiceImpl implements CustomerService {
         if (customerdao.existsById(id)) {
             return mapping.convertCustomerEntityToCustomerDTO(customerdao.getReferenceById(id));
         }else {
-            return new CustomerErrorResponse(0,"note note found");
+            return new CustomerErrorResponse(0,"customer not found");
         }
     }
 
