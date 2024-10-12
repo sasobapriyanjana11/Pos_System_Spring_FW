@@ -1,8 +1,7 @@
 package lk.ijse.gdse68.POS_System_REST_API.service.Impl;
 
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.transaction.Transactional;
+import lk.ijse.gdse68.POS_System_REST_API.dao.Customerdao;
 import lk.ijse.gdse68.POS_System_REST_API.dao.Itemdao;
 import lk.ijse.gdse68.POS_System_REST_API.dao.OrderDetailsdao;
 import lk.ijse.gdse68.POS_System_REST_API.dao.Orderdao;
@@ -18,14 +17,12 @@ import lk.ijse.gdse68.POS_System_REST_API.util.AppUtill;
 import lk.ijse.gdse68.POS_System_REST_API.util.Mapping;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.util.List;
 @Service
 @Transactional
 public class PlaceOrderServiceImpl implements PlaceOrderService {
-
+    @Autowired
+    private Customerdao customerdao;
     @Autowired
     private Itemdao itemDao;
     @Autowired
@@ -37,8 +34,8 @@ public class PlaceOrderServiceImpl implements PlaceOrderService {
 
     @Override
     public void saveOrder(OrderDTO orderDTO) {
+        // Create and populate the OrderEntity
         OrderEntity orderEntity = new OrderEntity();
-
         orderEntity.setOrderId(AppUtill.createOrderId());
         orderEntity.setOrderDate(orderDTO.getOrderDate());
         orderEntity.setTotal(orderDTO.getTotal());
@@ -47,29 +44,32 @@ public class PlaceOrderServiceImpl implements PlaceOrderService {
         orderEntity.setCash(orderDTO.getCash());
         orderEntity.setBalance(orderDTO.getBalance());
 
-        //save data to order entity
-        OrderEntity save = orderdao.save(orderEntity);
+        // Retrieve the CustomerEntity from the database
+        CustomerEntity customerEntity = customerdao.findById(orderDTO.getCustId())
+                .orElseThrow(() -> new IllegalArgumentException("Invalid customer id: " + orderDTO.getCustId()));
+        orderEntity.setCustomer(customerEntity);
 
-        //save data to order details entity
-        List<OrderDetailDTO> orderDetailsDTOS = orderDTO.getOrder_list();
-        for (OrderDetailDTO orderDetailDTO : orderDetailsDTOS) {
+        // Save the OrderEntity
+        OrderEntity savedOrder = orderdao.save(orderEntity);
+
+        // Process the order details and save them
+        for (OrderDetailDTO orderDetailDTO : orderDTO.getOrder_list()) {
             OrderDetailsEntity orderDetailsEntity = new OrderDetailsEntity();
-
             orderDetailsEntity.setOd_id(AppUtill.createOrderDetailId());
             orderDetailsEntity.setQty(orderDetailDTO.getQty());
             orderDetailsEntity.setUnitPrice(orderDetailDTO.getUnit_price());
 
-            // Fetch the ItemEntity
+            // Retrieve the ItemEntity from the database
             ItemEntity itemEntity = itemDao.findById(orderDetailDTO.getItemCode())
                     .orElseThrow(() -> new IllegalArgumentException("Invalid item code: " + orderDetailDTO.getItemCode()));
+            orderDetailsEntity.setItem(itemEntity);
+            orderDetailsEntity.setOrder(savedOrder);  // Link the saved order
 
-            orderDetailsEntity.setItem(itemEntity);  // Set the fetched ItemEntity
-            orderDetailsEntity.setOrder(save);  // Set the saved OrderEntity
-
+            // Save each OrderDetailsEntity
             orderDetailsdao.save(orderDetailsEntity);
         }
 
-        if (save == null) {
+        if (savedOrder == null) {
             throw new DataPersistFailedException("Order save failed!");
         }
     }
