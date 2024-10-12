@@ -19,11 +19,11 @@ public class OrderDetailsEntity implements SuperEntity {
     @Pattern(regexp = "OD\\d{3,}", message = "Order Detail ID must follow the pattern ODXXX (e.g., OD001)")
     private String od_id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "orderId", nullable = false)
     private OrderEntity order;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "itemCode", nullable = false)
     private ItemEntity item;
 
