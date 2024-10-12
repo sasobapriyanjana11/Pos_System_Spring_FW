@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @AllArgsConstructor
@@ -19,9 +20,10 @@ public class OrderEntity implements SuperEntity {
     @Id
     @Pattern(regexp = "O\\d{3,}", message = "Order ID must follow the pattern OXXX (e.g., O001)")
     private String orderId;
+
     private LocalDate orderDate;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "custId", nullable = false)
     private CustomerEntity customer;
 
@@ -32,6 +34,6 @@ public class OrderEntity implements SuperEntity {
     private BigDecimal balance;
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<OrderDetailsEntity> orderDetails;
+    private List<OrderDetailsEntity> orderDetails = new ArrayList<>();
 }
 
