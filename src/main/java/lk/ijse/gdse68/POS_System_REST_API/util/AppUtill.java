@@ -5,14 +5,16 @@ import java.util.UUID;
 
 public class AppUtill {
 
-    // Method to generate UUID-based Order ID
+    // Method to generate Order ID in the format OXXX
     public static String createOrderId() {
-        // Extract a portion of the UUID's hashcode (numeric only) and prefix with 'O'
-        return "O" + Math.abs(UUID.randomUUID().hashCode());  // "O" + numeric portion
+        int randomNum = (int) (Math.random() * 1000);
+        return String.format("O%03d", randomNum);  // Ensures format OXXX
     }
 
-    // Method to generate UUID-based Order Detail ID
+    // Method to generate Order Detail ID in the format ODXXX
     public static String createOrderDetailId() {
-        return "OD" + Math.abs(UUID.randomUUID().hashCode());  // "OD" + numeric portion
+        int randomNum = (int) (Math.random() * 1000);
+        return String.format("OD%03d", randomNum);  // Ensures format ODXXX
     }
+
 }
