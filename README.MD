@@ -143,4 +143,4 @@ using Spring, and the frontend is developed with HTML, CSS, and JavaScript.</p>
 
 <hr/>
 
-<a href="https://github.com/sasobapriyanjana11/Pos_System_Spring_FW/blob/main/MIT%20License.md">MIT License</a>
+<a href="https://github.com/sasobapriyanjana11/Pos_System_Spring_FW?tab=MIT-1-ov-file">MIT License</a>
