@@ -139,7 +139,7 @@ using Spring, and the frontend is developed with HTML, CSS, and JavaScript.</p>
 
 <h1>API Documentation</h1>
 
-[comment]: <> (<a href="https://documenter.getpostman.com/view/35385637/2sA3s1mqs3">API Documentation</a>)
+<a href="https://documenter.getpostman.com/view/35386302/2sAXxS8rFZ">API Documentation</a>
 
 <hr/>
 
