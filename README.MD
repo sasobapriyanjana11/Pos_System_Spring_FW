@@ -79,7 +79,7 @@ using Spring, and the frontend is developed with HTML, CSS, and JavaScript.</p>
 
 <h3>Order Endpoints</h3>
 <ul>
-    <li>GET /order: Retrieve all order.</li>
+    <li>GET /order: Retrieve all orders.</li>
     <li>POST /order: Create a new order.</li>
 </ul>
 
